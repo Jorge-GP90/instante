@@ -1,18 +1,27 @@
-<h1>Sessions new</h1>
-<br>
-<h1>Log in</h1> 
- <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %> 
- <%= f.label :email %> 
- <%= f.email_field :email %> 
- <%= f.label :password %> 
- <%= f.password_field :password %> 
- <%= f.submit "Log in" %> 
- <% end %>
-<br>
-<%= link_to 'New User', new_user_path %>
-<br>
-<%#= link_to 'edit User', edit_user_path %>
-<br>
-<%= link_to 'New post', new_post_path %>
-<br>
-<%= link_to 'New Session', new_session_path %>
+<div class="col-xs-12 col-sm-6">
+  <h1>Instante</h1>
+  <h2>Log in</h2>
+</div>
+<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+<div class="col-xs-12 col-sm-6">
+  <div class="panel panel-default">
+    <div class="form_group">
+      <%= f.email_field :email, placeholder: "e-mail", rows: 5, class: "form-control" %>
+    </div>
+    <div class="form_group">
+      <%= f.password_field :password, placeholder: "Password", rows: 5, class: "form-control" %>
+    </div>
+    <label class="send btn btn-default btn-block">
+      <div>
+        <%= f.submit "Log in", class: "send"%>Log in
+      </div>
+    </label>
+    <div class="">
+      <%= link_to "Forgot Password", "#" %>
+    </div>
+    <div class="">
+      <%= link_to "Create new account", new_user_path  %>
+    </div>
+  </div>
+</div>
+<% end %>

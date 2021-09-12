@@ -1,9 +1,13 @@
 <h1>Post edit</h1>
-<br>
-<%= link_to 'New User', new_user_path %>
-<br>
-<%= link_to 'edit User', edit_user_path %>
-<br>
-<%= link_to 'New post', new_post_path %>
-<br>
-<%= link_to 'New Session', new_session_path %>
+<div class="main container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="panel panel-default">
+        <h3>Edit a post</h3>
+        <%= render 'form' %>
+        <%= link_to 'Show', @post %> 
+        <%= link_to 'Back', posts_path %>
+      </div>
+    </div>
+  </div>
+</div>

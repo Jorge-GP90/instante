@@ -1,1 +1,17 @@
 <h1>Post index new</h1>
+<div class="post_form">
+  <% if @post.errors.any? %>
+    <div class="" id="error_explanation">
+      <h3>Error<%= @post.errors.count %>Could not post due follow error</h3>
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<ul class="list-inline list-unstyled">
+  <li><p class="post_username"><%= current_user.name %></li>
+</ul>

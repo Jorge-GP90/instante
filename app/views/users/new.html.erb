@@ -1,33 +1,14 @@
-<h1>Sign up</h1>
-<br>
-<h1>Users new</h1>
-<br>
-<% if @user.errors.any? %> 
-<div id="error_explanation"> 
-<h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2> 
-<ul> 
-<% @user.errors.full_messages.each do |message| %> 
-<li><%= message %></li> 
-<% end %> 
-</ul> 
-</div> 
-<% end %> 
-<%= form_with(model: @user, local: true) do |f| %> 
-<%= f.label :name %> 
-<%= f.text_field :name %> 
-<%= f.label :email %> 
-<%= f.email_field :email %> 
-<%= f.label :password %> 
-<%= f.password_field :password %> 
-<%= f.label :password_confirmation %> 
-<%= f.password_field :password_confirmation %> 
-<%= f.submit "Create my account" %> 
-<% end %>
-
-<%#= link_to 'edit User', edit_user_path %>
-<br>
-<%= link_to 'New post', new_post_path %>
-<br>
-<%= link_to 'New Session', new_session_path %>
-
-
+<div class="container-fluid">
+  <div class="row signup">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="panel panel-default">
+        <h1>Instante</h1>
+        <%= render 'form', user: @user %>
+        <div class="">
+          <p>Start capturing and sharing your moments.</p>
+        </div>
+        <%= link_to 'Login', new_session_path %>
+      </div>  
+    </div>
+  </div>
+</div>
