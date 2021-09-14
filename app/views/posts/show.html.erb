@@ -1,1 +1,37 @@
 <h1>Post show</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="my_post panel panel-default">
+        <h3>Post</h3>
+      </div>
+      <div class="panel panel-default">
+        <ul class="list-inline list-unstyled">
+          <li><p class="bi bi-person-fill" class="post_username"><%= @post.user.name %></p></li>
+          <p class="post_timestamp"><small><%= @post.updated_at.strftime("%Y-%m-%d %H:%M") %></small></p>
+          <p class="post_content lead"><%= @post.content %></p>
+          <div class="post_image">
+            <strong>Image:</strong>
+            <% if @post.image.present? %>
+              <%= image_tag(@post.image.url, class: "img-responsive") %>
+            <% end %>
+          </div>
+          <div>
+            <strong>Title:</strong>
+            <%= @post.title %>
+          </div>
+          <div>
+            <strong>Content:</strong>
+            <%= @post.content %>
+          </div>
+          <li class="right">
+            <% if current_user.id == @post.user_id %>
+              <li class="right"><%= link_to "Edit", edit_post_path(@post.id) %></li>
+            <% end %>
+          </li>
+          <li class="right"><%= link_to "Home", posts_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

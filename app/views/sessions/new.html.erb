@@ -1,27 +1,57 @@
-<div class="col-xs-12 col-sm-6">
-  <h1>Instante</h1>
-  <h2>Log in</h2>
-</div>
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-<div class="col-xs-12 col-sm-6">
-  <div class="panel panel-default">
-    <div class="form_group">
-      <%= f.email_field :email, placeholder: "e-mail", rows: 5, class: "form-control" %>
-    </div>
-    <div class="form_group">
-      <%= f.password_field :password, placeholder: "Password", rows: 5, class: "form-control" %>
-    </div>
-    <label class="send btn btn-default btn-block">
-      <div>
-        <%= f.submit "Log in", class: "send"%>Log in
+<div class="container-fluid">
+  <div class="row-signup">
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <div class="col-xs-12 col-sm-8 col-md-6 align-items-center">
+      <div class="panel panel-default">
+        <h1 id="instante">Instante</h1>
+        <div class="form_group">
+        <%= f.email_field :email, placeholder: "email", rows: 5, class: "form-control" %>
+        </div>
+        <div class="form_group">
+        <%= f.password_field :password, placeholder: "Password", rows: 5, class: "form-control" %>
+        </div>
+        <label class="send btn btn-default btn-block">
+          <div>
+           <%= f.submit "Log in", class: "send"%>Log in
+          </div>
+        </label>
+        <p id="forgot_password"><% link_to 'Forgot Password?', "#" %></p>
+      </div> 
+      <div id="login" class="panel panel-default">
+        <p>Don't have and account? <%= link_to 'Sign up', new_user_path  %></p>
       </div>
-    </label>
-    <div class="">
-      <%= link_to "Forgot Password", "#" %>
+      <div class="apps">
+        <p>Get the app. </p>
+        <div class="icons">
+          <span>
+            <%= image_tag("logos/apple_store.png", width: '120', height: '50') %>
+            <%= image_tag("logos/google_store.png", width: '100', height: '80') %>
+          </span>
+        </div>
+      </div> 
     </div>
-    <div class="">
-      <%= link_to "Create new account", new_user_path  %>
+    <% end %>
+  </div>
+  <div class="footer">
+    <div class="links">
+      <ul class="text-muted">
+        <li><% link_to "About", "#" %>About</li>
+        <li><% link_to "Blog", "#" %>Blog</li>
+        <li><% link_to "Jobs", "#" %>Jobs</li>
+        <li><% link_to "Help", "#" %>Help</li>
+        <li><% link_to "API", "#" %>API</li>
+        <li><% link_to "Privacy", "#" %>Privacy</li>
+        <li><% link_to "Terms", "#" %>Terms</li>
+        <li><% link_to "Top Accounts", "#" %>Top Accounts</li>
+        <li><% link_to "Hashtags", "#" %>Hashtags</li>
+        <li><% link_to "Location", "#" %>Location</li>
+        <li><% link_to "Instagram Lite", "#" %>Instagram Lite</li>
+        <li><% link_to "English", "#" %>English</li>
+      </ul>
+    </div>
+    <br>
+    <div class="copyright text-muted">
+      © 2021 Instagram from Facebook
     </div>
   </div>
 </div>
-<% end %>

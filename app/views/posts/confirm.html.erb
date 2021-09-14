@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row signup">
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="panel panel-default">
+        <h1>Confirmation screen</h1>
+        <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+          <%= @post.content %>
+          <%= form.hidden_field :content %>
+          <%= image_tag(@post.image.url, class: "img-responsive") if @post.image && @post.image.url %>
+          <%= form.hidden_field :image_cache %> 
+          <label class="send btn btn-default btn-block">
+            <div>
+              <%= form.submit "post", class: "send" %>post
+            </div>
+          </label>
+        <% end %>
+        <%= form_with(model: @post, url: new_post_path, local: true, method: :GET) do |form| %>
+          <%= form.hidden_field :content %>
+          <%= form.hidden_field :image_cache %>
+          <label class="send btn btn-default btn-block"><div>
+          <%= form.submit "Back", name: "back", class: "send" %>back</div></label>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

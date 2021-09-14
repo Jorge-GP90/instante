@@ -1,0 +1,56 @@
+<div class="post_form">
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div class="" id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+</div>
+<ul class="list-inline list-unstyled">
+  <li><p class="post_username"><%= current_user.name %></li>
+</ul>
+<%# <%= form_with(model: @post, url: choose_new_or_edit, local: true) do |form| %> 
+<%= form_with(model: @post, local: true) do |form| %>
+  <div class="post_image">
+    <%= image_tag(@post.image.url, class: "img-responsive") if @post.image && @post.image.url %>
+  </div>  
+  <div class="form_group lead">
+    <%= form.text_area :content, id: :post_content, placeholder: @init, rows: 7, class: "form-control post_content" %>
+  </div>
+  <div class="image_upload panel panel-default">
+    <ul class="list-inline list-unstyled">
+      <li class="right">
+      <% if (@post.content || @post.image).present? %>
+        <p><strong><%= link_to "Delete", post_path(@post.id), method: :delete, data: {confirm: 'Are you sure to delete？'} %></strong></p>
+      <% end %>
+      </li>
+      <li class="right">
+        <label>
+          <span class="filelabel" title="Choose file">
+            <%= image_tag("logos/image_icon.png", width: '26', height: '32') %>
+          </span>
+          <%= form.file_field :image, id: :post_image  %>
+          <%= form.hidden_field :image_cache %>
+        </label>
+      <% if @post.image.present? %>
+        <li class="right"><p class="selected">selected</p></li>
+      <% else %>
+        <li class="right"><p class="not_selected"> No selected</p></li>
+      <% end %>
+      </li>
+      <li class="left"><strong><%= link_to "Add post to", "#"%></strong>
+      </li>
+    </ul>
+  </div>  
+  <label class="send btn btn-default btn-block">
+    <div>
+      <%= form.submit "post", class: "send" %>post
+    </div>
+  </label>
+<% end %>

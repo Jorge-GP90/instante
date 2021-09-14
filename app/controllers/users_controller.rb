@@ -12,8 +12,8 @@ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   def edit 
   end
   def show
-    posts = current_user.posts.where.not(image: nil)
-    @posts = current_user.posts.all.order("id DESC")
+    # posts = current_user.posts.where.not(image: nil)
+    # @posts = current_user.posts.all.order("id DESC")
   end
   def create
     @user = User.new(user_params)

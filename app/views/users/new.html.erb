@@ -1,14 +1,47 @@
 <div class="container-fluid">
-  <div class="row signup">
-    <div class="col-xs-12 col-sm-8 col-md-6">
+  <div class="row-signup">
+    <div class="col-xs-12 col-sm-8 col-md-6 align-items-center">
       <div class="panel panel-default">
-        <h1>Instante</h1>
+        <h1 id="instante">Instante</h1>
+        <br>
+        <h3 class="text-muted">Sign up to see photos and videos from your friends.</h3>
         <%= render 'form', user: @user %>
-        <div class="">
-          <p>Start capturing and sharing your moments.</p>
+        <p id="policy" class="text-muted">By signing up, you agree to our Terms, Data Policy and Cookies Policy.</p>
+      </div> 
+      <div id="login" class="panel panel-default">
+        <p>Have and account? <%= link_to 'Log in', new_session_path %></p>
+      </div>
+      <div class="apps">
+        <p>Get the app. </p>
+        <div class="icons">
+          <span>
+            <%= image_tag("logos/apple_store.png", width: '120', height: '50') %>
+            <%= image_tag("logos/google_store.png", width: '100', height: '80') %>
+          </span>
         </div>
-        <%= link_to 'Login', new_session_path %>
-      </div>  
+      </div> 
+    </div>
+  </div>
+  <div class="footer">
+    <div class="links">
+      <ul class="text-muted">
+        <li><% link_to "About", "#" %>About</li>
+        <li><% link_to "Blog", "#" %>Blog</li>
+        <li><% link_to "Jobs", "#" %>Jobs</li>
+        <li><% link_to "Help", "#" %>Help</li>
+        <li><% link_to "API", "#" %>API</li>
+        <li><% link_to "Privacy", "#" %>Privacy</li>
+        <li><% link_to "Terms", "#" %>Terms</li>
+        <li><% link_to "Top Accounts", "#" %>Top Accounts</li>
+        <li><% link_to "Hashtags", "#" %>Hashtags</li>
+        <li><% link_to "Location", "#" %>Location</li>
+        <li><% link_to "Instagram Lite", "#" %>Instagram Lite</li>
+        <li><% link_to "English", "#" %>English</li>
+      </ul>
+    </div>
+    <br>
+    <div class="copyright text-muted">
+      © 2021 Instagram from Facebook
     </div>
   </div>
 </div>
