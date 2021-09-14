@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-before_action :set_post, only: [:show, :edit, :update, :destroy, :new]
+before_action :set_post, only: [:show, :edit, :update, :destroy]
 include PostsHelper
 before_action :initial_value, only: [:index, :new, :edit]
 before_action :correct_user, only: [:edit, :update, :destroy]
@@ -49,7 +49,7 @@ before_action :correct_user, only: [:edit, :update, :destroy]
     redirect_to posts_path, notice: "Not Authorized to Edit this post" if @post.nil?
   end 
   private
-  def post_paragrams
+  def post_params
     params.require(:post).permit(:title, :content, :image, :image_cache)
   end
   def set_post

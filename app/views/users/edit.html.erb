@@ -1,13 +1,37 @@
 <div class="container-fluid">
-  <div class="row signup">
-    <div class="col-xs-12 col-sm-8 col-md-6">
+  <div class="row-signup">
+    <div class="col-xs-12 col-sm-8 col-md-6 align-items-center">
       <div class="panel panel-default">
         <h1>Account information</h1>
         <br>
-        <%= render 'form' %>
-        <%= link_to 'Show', @user %>
-        <%= link_to 'Back', posts_path %>
-      </div>
+        <%= render 'form', user: @user %>
+        <div class="links-edit">
+          <ul>
+            <li><%= link_to 'Profile', @user %></li>
+            <li><%= link_to 'Home', posts_path %></li>
+        </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="links">
+      <ul class="text-muted">
+        <li><% link_to "About", "#" %>About</li>
+        <li><% link_to "Blog", "#" %>Blog</li>
+        <li><% link_to "Jobs", "#" %>Jobs</li>
+        <li><% link_to "Help", "#" %>Help</li>
+        <li><% link_to "API", "#" %>API</li>
+        <li><% link_to "Privacy", "#" %>Privacy</li>
+        <li><% link_to "Terms", "#" %>Terms</li>
+        <li><% link_to "Top Accounts", "#" %>Top Accounts</li>
+        <li><% link_to "Hashtags", "#" %>Hashtags</li>
+        <li><% link_to "Location", "#" %>Location</li>
+        <li><% link_to "Instagram Lite", "#" %>Instagram Lite</li>
+        <li><% link_to "English", "#" %>English</li>
+      </ul>
+    </div>
+    <br>
+    <div class="copyright text-muted">
+      © 2021 Instagram from Facebook
     </div>
   </div>
 </div>

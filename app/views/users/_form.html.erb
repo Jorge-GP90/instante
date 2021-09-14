@@ -10,25 +10,22 @@
     </div>
   <% end %>
 </div>
-<div class="">
-  
-</div>
 <%= form_with(model: @user, local: true) do |form| %>
-  <div class="form_group" >
-    <%= form.text_field :name, placeholder: "Name", rows: 7, class: "form-control" %>
+<div class="form_group" >
+  <%= form.text_field :name, placeholder: "Name", rows: 7, class: "form-control" %>
+</div>
+<div class="form_group" >
+  <%= form.text_field :email, placeholder: "e-mail", rows: 7, class: "form-control" %>
+</div>
+<div class="form_group" >
+  <%= form.password_field :password, placeholder: "Password", rows: 7, class: "form-control" %>
+</div>
+<div class="form_group" >
+  <%= form.password_field :password_confirmation, placeholder: "Password confirm", rows: 7, class: "form-control" %>
+</div>
+<label class="send btn btn-default btn-block">
+  <div>
+    <%= form.submit "Sign Up", class: "send"%> Sign up
   </div>
-  <div class="form_group" >
-    <%= form.text_field :email, placeholder: "e-mail", rows: 7, class: "form-control" %>
-  </div>
-  <div class="form_group" >
-    <%= form.password_field :password, placeholder: "Password", rows: 7, class: "form-control" %>
-  </div>
-  <div class="form_group" >
-    <%= form.password_field :password_confirmation, placeholder: "Password confirm", rows: 7, class: "form-control" %>
-  </div>
-  <label class="send btn btn-default btn-block">
-    <div>
-      <%= form.submit "Sign Up", class: "send"%> Sign up
-    </div>
-  </label>
+</label>
 <% end %>

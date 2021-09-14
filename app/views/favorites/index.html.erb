@@ -1,1 +1,21 @@
+<header>
+  <ul class="panel-header  list-inline list-unstyled "> 
+    <li class="h-inst">
+      <h1 class="instante">Instante</h1>
+    </li>
+    <li class="h-search">
+    <%= form_with url: "/search", method: :get do |form| %>
+    <%= form.text_field :query, placeholder:"Search", class: "search-field" %>
+      <i class="bi bi-search"></i><%= form.submit "Search", class: "search-btn" %>
+    <% end %>
+    </li> 
+    <li class="h-icons">
+      <li class="right"><i class="bi bi-house-fill"></i><%=link_to "Home", posts_path %></li>
+      <li class="right"><i class="bi bi-messenger"></i><%=link_to "Message", posts_path %></li>
+      <li class="right"><%=link_to "Random", "#" %></li>
+      <li class="right"><i class="bi bi-suit-heart"></i><%=link_to "favorites", "#" %></li>
+      <li class="right"><i class="bi bi-person-circle"></i><%=link_to "Profile", users_path %></li>
+    </li>
+  </ul>
+</header>
 <h1>favorites index new</h1>

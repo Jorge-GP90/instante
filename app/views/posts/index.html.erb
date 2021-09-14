@@ -1,24 +1,37 @@
-<h1>Post index new</h1>
-
+<header>
+  <ul class="panel-header  list-inline list-unstyled "> 
+    <li class="h-inst">
+      <h1 class="instante">Instante</h1>
+    </li>
+    <li class="h-search">
+    <%= form_with url: "/search", method: :get do |form| %>
+    <%= form.text_field :query, placeholder:"Search", class: "search-field" %>
+      <i class="bi bi-search"></i><%= form.submit "Search", class: "search-btn" %>
+    <% end %>
+    </li> 
+    <li class="h-icons">
+      <li class="right"><i class="bi bi-house-fill"></i><%=link_to "Home", posts_path %></li>
+      <li class="right"><i class="bi bi-messenger"></i><%=link_to "Message", posts_path %></li>
+      <li class="right"><%=link_to "Random", "#" %></li>
+      <li class="right"><i class="bi bi-suit-heart"></i><%=link_to "favorites", "#" %></li>
+      <li class="right"><i class="bi bi-person-circle"></i><%=link_to "Profile", users_path %></li>
+    </li>
+  </ul>
+</header>
 <div class="main container-fluid">
   <div class="row">
+    <div class="col-xs-12 col-md-3">
+    </div>
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="stories panel panel-default">
-        <h3>New post</h3>
-        <p>Share your moments</p>
-      </div>
-      <div class="post panel panel-default">
         <div class="lead">
-          <i class="bi bi-file-person-fill"></i><%= link_to "#{current_user.name}  Share a new post", new_post_path %>
+          <i class="bi bi-file-person-fill"></i><%= link_to "#{current_user.name} ", new_post_path %>
         </div>
         <ul class="list-inline list-unstyled">
           <li><i class="bi bi-camera-video-fill"></i><% link_to "Live Video", "#" %>Live Video</li>
           <li><i class="bi bi-images"></i><% link_to "Photos / Videos", "#" %>Photos / Videos</li>
           <li><i class="bi bi-window"></i><% link_to "Mood / Activity", "#" %>Mood / Activity</li>
         </ul>
-      </div>
-      <div class="make_room panel panel-default">
-        <p><i class="bi bi-plus-square"><%= link_to "Let's create a room", "#" %></i></p>
       </div>
       <% @posts.each do |post| %>
         <div class="post panel panel-default">
@@ -40,6 +53,8 @@
             </ul>
         </div>
       <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3">
     </div>
   </div>
 </div>
