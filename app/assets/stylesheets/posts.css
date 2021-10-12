@@ -22,7 +22,7 @@ header ul {
   margin-right: 50px;
   }
 .h-search{
-    margin: 150px;
+    margin: 70px;
     align-items: center;
     justify-content: center;
      }
@@ -47,7 +47,7 @@ header a {
   margin-top: 30px;
 }
   
-  .instante {
+.instante {
     text-align: center;
     font-family: 'Pacifico', cursive;
     margin: 0;
@@ -137,7 +137,7 @@ header a {
   .filelabel img {
     vertical-align: middle;
   }
-   filelabel:hover {
+  .filelabel:hover {
    cursor: pointer;
    background-color: #E6E6E6;
   } 
@@ -215,4 +215,12 @@ header a {
     width: 3px;
     height: 3px;
     border-radius: 50%;
+  }
+  .profile-img{
+    margin: 10px;
+    padding: 30%;
+    display: block;
+    border-radius: 50%;
+    border: 5px solid blue;
+    box-shadow: 0 0 0 5px red;
   }
