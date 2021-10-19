@@ -1,0 +1,44 @@
+<div class="post_form">
+<% if @post.errors.any? %>
+  <div class="" id="error_explanation">
+    <h2><%= @post.errors.count %> prohibited this post from being saved:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+</div>
+<div class="stories panel panel-default">
+  <ul class="list-inline list-unstyled">
+    <li><p class="post_username"><%= current_user.name %></li>
+  </ul>
+  <%= form_with(model: @post, url: choose_new_or_edit, local: true) do |form| %> 
+    <div class="post_image">
+    <%= image_tag(@post.image.url, class: "img-responsive") if @post.image && @post.image.url %>
+    </div>  
+    <div class="form_group lead">
+    <%= form.text_area :content, id: :post_content, placeholder: "#{current_user.name}, Let's share to all ", rows: 7, class: "form-control post_content" %>
+    </div>
+</div>    
+  <div class="image_upload panel panel-default">
+    <ul class="list-inline list-unstyled">
+      <li class="right">
+        <label class="filelabel" title="Choose file">
+          <%= image_tag("logos/image_icon.png", width: '25', height: '20') %>
+          <%= form.hidden_field :image_cache %>
+        </label>
+      <% if @post.image.present? %>
+      <li class="right"><p class="selected">selected</p></li>
+      <% else %>
+      <li class="right"><p class="not_selected"> No selected</p></li>
+      <% end %>
+    </ul>
+  </div>  
+  <label class="send btn btn-default btn-block">
+    <div>
+      <%= form.submit "post", class: "send" %>post
+    </div>
+  </label>
+<% end %>

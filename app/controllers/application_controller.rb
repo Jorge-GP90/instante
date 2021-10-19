@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def login_required
     redirect_to new_session_path unless current_user
   end
-  def initial_value
-    @init = "#{current_user.name}, Let's share to all "
-  end
+  # def initial_value
+  #   @init = "#{current_user.name}, Let's share to all "
+  # end
 end

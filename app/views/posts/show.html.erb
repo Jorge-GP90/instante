@@ -11,8 +11,8 @@
           <p class="post_content lead"><%= @post.content %></p>
           <div class="post_image">
             <strong>Image:</strong>
-            <% if @user.image.present? %>
-              <%= image_tag(@user.image.url, class: "img-responsive") %>
+            <% if @post.image.present? %>
+              <%= image_tag(@post.image.url, class: "img-responsive") %>
             <% end %>
           </div>
           <div>
@@ -24,10 +24,18 @@
             <%= @post.content %>
           </div>
           <li class="right">
+            <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post %>
             <% if current_user.id == @post.user_id %>
               <li class="right"><%= link_to "Edit", edit_post_path(@post.id) %></li>
             <% end %>
           </li>
+          <% if @post.user_id != current_user.id %>
+            <% if @favorite.present? %>
+              <%= link_to 'Remove favorite', favorite_path(id: @post.id), method: :delete, class: 'btn btn-danger' %>
+            <% else %>
+              <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+            <% end %>
+          <% end %>
           <li class="right"><%= link_to "Home", posts_path %></li>
         </ul>
       </div>

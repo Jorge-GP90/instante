@@ -1,21 +1,30 @@
-<header>
-  <ul class="panel-header  list-inline list-unstyled "> 
-    <li class="h-inst">
-      <h1 class="instante">Instante</h1>
-    </li>
-    <li class="h-search">
-    <%= form_with url: "/search", method: :get do |form| %>
-    <%= form.text_field :query, placeholder:"Search", class: "search-field" %>
-      <i class="bi bi-search"></i><%= form.submit "Search", class: "search-btn" %>
-    <% end %>
-    </li> 
-    <li class="h-icons">
-      <li class="right"><i class="bi bi-house-fill"></i><%=link_to "Home", posts_path %></li>
-      <li class="right"><i class="bi bi-messenger"></i><%=link_to "Message", posts_path %></li>
-      <li class="right"><%=link_to "Random", "#" %></li>
-      <li class="right"><i class="bi bi-suit-heart"></i><%=link_to "favorites", "#" %></li>
-      <li class="right"><i class="bi bi-person-circle"></i><%=link_to "Profile", users_path %></li>
-    </li>
-  </ul>
-</header>
-<h1>favorites index new</h1>
+
+<h1>favorites</h1>
+<div class="main container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <ul class="list-inline list-unstyled">
+        <% @favorites.each do |favorite| %>
+        <div class="stories panel panel-default">
+          <div class="post_image">
+          <%= favorite.content %>
+            <% if favorite.image.present? %>
+              <%= image_tag(favorite.image.url, class: "img-responsive") %>
+            <% end %>
+          </div>
+        </div>
+        <% if favorite.present? %>
+          <%= link_to 'Remove favorite', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+          <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+        <% end %>
+        <li class="right"><%= link_to "Home", posts_path %></li>
+        <% end %>  
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3">
+    </div>
+  </div>
+</div>

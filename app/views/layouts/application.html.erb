@@ -27,8 +27,8 @@
        <li class="h-icons">
          <li class="right"><i class="bi bi-house-fill"></i><%=link_to "Home", posts_path %></li>
          <li class="right"><i class="bi bi-messenger"></i><%=link_to "Message", posts_path %></li>
-         <li class="right"><%=link_to "Random", "#" %></li>
-         <li class="right"><i class="bi bi-suit-heart"></i><%=link_to "favorites", "#" %></li>
+         <li class="right"><%=link_to "Random", posts_path %></li>
+         <li class="right"><i class="bi bi-suit-heart"></i><%=link_to "favorites", favorites_path %></li>
          <li class="right"><i class="bi bi-person-circle"></i><%=link_to "Profile", user_path(current_user.id) %></li>
          <li class="right"><i class="bi bi-box-arrow-in-left"></i><%=link_to "Log out", session_path(current_user.id), method: :delete %></li>
        </li>
