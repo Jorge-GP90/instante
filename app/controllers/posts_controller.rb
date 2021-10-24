@@ -30,7 +30,8 @@ before_action :correct_user, only: [:edit, :update, :destroy]
       render :new
     else
       if @post.save
-        redirect_to posts_path(current_user.id), notice: "new post created"
+        PostMailer.post_mail(@post).deliver
+        redirect_to posts_path(current_user.id), notice: "new post  was successfully created"
       else
         render :new
       end
