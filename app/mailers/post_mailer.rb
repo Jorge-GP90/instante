@@ -4,6 +4,6 @@ class PostMailer < ApplicationMailer
 
   def post_mail(post)
     @post = post
-    mail to: "jorge.90gap@gmail.com", subject: " Your Instagram account has been created, Welcome to the community."
+    mail to: "jorge.90gap@gmail.com", subject: " New post been created"
   end
 end
