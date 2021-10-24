@@ -29,6 +29,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'letter_opener_web'
 end
 
 group :test do
